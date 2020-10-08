@@ -7,7 +7,7 @@ jobs:
      language: java
      jdk: openjdk8
      script:
-      - .travis/generateSDK.sh
+      - git clone https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git
   #  - stage: Update version and repository  
 # # command to install dependencies
 # install: "pip install -r requirements.txt"
