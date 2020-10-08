@@ -10,8 +10,8 @@ jobs:
       - git clone https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git
       - cd esper-sdk-config
       - wget https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.2.1/swagger-codegen-cli-2.2.1.jar
-      - java -jar swagger-codegen-cli.jar generate -i ./esper-api-spec.yaml -l python -c ./sdk-config/python-config.json --template-dir ./sdk-templates/python/ -o esperclient 
-      - echo "Generated SDK Successfully!"
+      - java -jar swagger-codegen-cli-2.2.1.jar generate -i ./esper-api-spec.yaml -l python -c ./sdk-config/python-config.json --template-dir ./sdk-templates/python/ -o esperclient 
+      - 
   #  - stage: Update version and repository  
 # # command to install dependencies
 # install: "pip install -r requirements.txt"
