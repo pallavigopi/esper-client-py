@@ -6,7 +6,7 @@ jobs:
    - stage: SDK Generation
      language: java
      jdk: openjdk8
-     script: ./generateSDK.sh
+     script: generateSDK.sh
   #  - stage: Update version and repository  
 # # command to install dependencies
 # install: "pip install -r requirements.txt"
