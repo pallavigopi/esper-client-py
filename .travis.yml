@@ -1,12 +1,15 @@
 language: python
 python:
   - "3.6"
+jobs:
+ include:
+   - stage: SDK Generation
+     language: java
+     jdk: openjdk8
+     script: ./generateSDK.sh
+  #  - stage: Update version and repository  
+# # command to install dependencies
+# install: "pip install -r requirements.txt"
 
-env:
-  - PYTHONPATH=.
-
-# command to install dependencies
-install: "pip install -r requirements.txt"
-
-# command to run tests
-script: python test/scripts/test_env.py
+# # command to run tests
+# script: python test/scripts/test_env.py
