@@ -20,7 +20,7 @@ jobs:
       - git config --global user.name "Travis CI"
       - git add .
       - git status
-      - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+      - git commit -m "Travis Build $TRAVIS_BUILD_NUMBER"
       - git push -u origin sdk-build-automation
       #  - stage: Update version and repository  
 # # command to install dependencies
