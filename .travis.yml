@@ -16,10 +16,12 @@ jobs:
       - git clone https://$GITHUB_TOKEN@github.com/pallavigopi/esper-client-py.git -b sdk-build-automation
       - java -jar swagger-codegen-cli-2.4.4.jar generate -i ./esper-api-spec.yaml -l python -c ./sdk-config/python-config.json --template-dir ./sdk-templates/python/ -o esper-client-py
       - cd esper-client-py
-      - ls
-      - git status
+      - git config --global user.email "travis@travis-ci.org
+      - git config --global user.name "Travis CI"
       - git add .
       - git status
+      - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+      - git push -u origin sdk-build-automation
       #  - stage: Update version and repository  
 # # command to install dependencies
 # install: "pip install -r requirements.txt"
