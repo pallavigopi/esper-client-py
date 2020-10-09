@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-ESPER API REFERENCE
+Esper APIs
 
 OpenAPI spec version: 1.0.0
 Contact: developer@esper.io

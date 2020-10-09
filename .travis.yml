@@ -1,30 +1,12 @@
 language: python
 python:
   - "3.6"
-jobs:
- include:
-   - stage: SDK Generation
-     language: java
-     jdk: openjdk8
-     script:
-      - git clone https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git
-      - cd esper-sdk-config
-      - wget https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.4/swagger-codegen-cli-2.4.4.jar
-      # - java -jar swagger-codegen-cli-2.4.4.jar generate -i ./esper-api-spec.yaml -l python -c ./sdk-config/python-config.json --template-dir ./sdk-templates/python/ -o esperclient
-      - ls
-      - git status
-      - git clone https://$GITHUB_TOKEN@github.com/pallavigopi/esper-client-py.git -b sdk-build-automation
-      - java -jar swagger-codegen-cli-2.4.4.jar generate -i ./esper-api-spec.yaml -l python -c ./sdk-config/python-config.json --template-dir ./sdk-templates/python/ -o esper-client-py
-      - cd esper-client-py
-      - git config --global user.email "travis@travis-ci.org
-      - git config --global user.name "Travis CI"
-      - git add .
-      - git status
-      - git commit -m "Travis Build $TRAVIS_BUILD_NUMBER"
-      - git push -u origin sdk-build-automation
-      #  - stage: Update version and repository  
-# # command to install dependencies
-# install: "pip install -r requirements.txt"
 
-# # command to run tests
-# script: python test/scripts/test_env.py
+env:
+  - PYTHONPATH=.
+
+# command to install dependencies
+install: "pip install -r requirements.txt"
+
+# command to run tests
+script: python test/scripts/test_env.py

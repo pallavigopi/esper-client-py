@@ -33,7 +33,7 @@ configuration.api_key_prefix['Authorization'] = 'Bearer'
 # create an instance of the API class
 api_instance = esperclient.DeviceGroupApi(esperclient.ApiClient(configuration))
 enterprise_id = 'enterprise_id_example' # str | A UUID string identifying enterprise.
-data = esperclient.DeviceGroupUpdate() # DeviceGroupUpdate | 
+data = esperclient.DeviceGroup() # DeviceGroup | 
 
 try:
     # Create a device group
@@ -48,7 +48,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **str**| A UUID string identifying enterprise. | 
- **data** | [**DeviceGroupUpdate**](DeviceGroupUpdate.md)|  | 
+ **data** | [**DeviceGroup**](DeviceGroup.md)|  | 
 
 ### Return type
 
@@ -118,7 +118,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_groups**
-> InlineResponse2007 get_all_groups(enterprise_id, name=name, limit=limit, offset=offset)
+> InlineResponse2006 get_all_groups(enterprise_id, name=name, limit=limit, offset=offset)
 
 List device groups
 
@@ -138,7 +138,7 @@ configuration.api_key_prefix['Authorization'] = 'Bearer'
 # create an instance of the API class
 api_instance = esperclient.DeviceGroupApi(esperclient.ApiClient(configuration))
 enterprise_id = 'enterprise_id_example' # str | A UUID string identifying enterprise.
-name = 'name_example' # str | Filter by group name (optional)
+name = 'name_example' # str | filter by group name (optional)
 limit = 20 # int | Number of results to return per page. (optional) (default to 20)
 offset = 0 # int | The initial index from which to return the results. (optional) (default to 0)
 
@@ -155,13 +155,13 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enterprise_id** | **str**| A UUID string identifying enterprise. | 
- **name** | **str**| Filter by group name | [optional] 
+ **name** | **str**| filter by group name | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] [default to 20]
  **offset** | **int**| The initial index from which to return the results. | [optional] [default to 0]
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **partial_update_group**
-> DeviceGroup partial_update_group(group_id, enterprise_id, data, action=action)
+> DeviceGroup partial_update_group(group_id, enterprise_id, data)
 
 Partial update group
 
@@ -249,12 +249,11 @@ configuration.api_key_prefix['Authorization'] = 'Bearer'
 api_instance = esperclient.DeviceGroupApi(esperclient.ApiClient(configuration))
 group_id = 'group_id_example' # str | A UUID string identifying this enterprise device group.
 enterprise_id = 'enterprise_id_example' # str | A UUID string identifying enterprise.
-data = esperclient.DeviceGroupPartialUpdate() # DeviceGroupPartialUpdate | 
-action = 'action_example' # str | add / remove / rename / move (optional)
+data = esperclient.DeviceGroupUpdate() # DeviceGroupUpdate | 
 
 try:
     # Partial update group
-    api_response = api_instance.partial_update_group(group_id, enterprise_id, data, action=action)
+    api_response = api_instance.partial_update_group(group_id, enterprise_id, data)
     print(api_response)
 except ApiException as e:
     print("Exception when calling DeviceGroupApi->partial_update_group: %s\n" % e)
@@ -266,8 +265,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | [**str**](.md)| A UUID string identifying this enterprise device group. | 
  **enterprise_id** | **str**| A UUID string identifying enterprise. | 
- **data** | [**DeviceGroupPartialUpdate**](DeviceGroupPartialUpdate.md)|  | 
- **action** | **str**| add / remove / rename / move | [optional] 
+ **data** | [**DeviceGroupUpdate**](DeviceGroupUpdate.md)|  | 
 
 ### Return type
 
@@ -285,7 +283,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_group**
-> DeviceGroup update_group(group_id, enterprise_id, data, action=action)
+> DeviceGroup update_group(group_id, enterprise_id, data)
 
 Update device group
 
@@ -307,11 +305,10 @@ api_instance = esperclient.DeviceGroupApi(esperclient.ApiClient(configuration))
 group_id = 'group_id_example' # str | A UUID string identifying this enterprise device group.
 enterprise_id = 'enterprise_id_example' # str | A UUID string identifying enterprise.
 data = esperclient.DeviceGroupUpdate() # DeviceGroupUpdate | 
-action = 'action_example' # str | add / remove / rename / move (optional)
 
 try:
     # Update device group
-    api_response = api_instance.update_group(group_id, enterprise_id, data, action=action)
+    api_response = api_instance.update_group(group_id, enterprise_id, data)
     print(api_response)
 except ApiException as e:
     print("Exception when calling DeviceGroupApi->update_group: %s\n" % e)
@@ -324,7 +321,6 @@ Name | Type | Description  | Notes
  **group_id** | [**str**](.md)| A UUID string identifying this enterprise device group. | 
  **enterprise_id** | **str**| A UUID string identifying enterprise. | 
  **data** | [**DeviceGroupUpdate**](DeviceGroupUpdate.md)|  | 
- **action** | **str**| add / remove / rename / move | [optional] 
 
 ### Return type
 
