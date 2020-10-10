@@ -3,9 +3,9 @@ python:
   - "3.6"
 jobs:
  include:
-   -stage: Version Updation
-    language: python
-    script:
+   - stage: Version Updation
+     language: python
+     script:
       - git clone --quiet https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git
       - cd esper-sdk-config
       - export SDK_VERSION=$(git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' https://github.com/pallavigopi/esper-api-spec | cut --delimiter='/' --fields=3)
