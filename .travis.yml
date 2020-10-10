@@ -30,6 +30,8 @@ jobs:
       - git status
       - git commit -m "Travis Build $TRAVIS_BUILD_NUMBER"
       - git push -u origin sdk-build-automation
+
+      #random commit ok
       #  - stage: Update version and repository  
 # # command to install dependencies
 # install: "pip install -r requirements.txt"
