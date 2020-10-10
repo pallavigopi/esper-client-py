@@ -19,7 +19,7 @@ jobs:
      language: java
      jdk: openjdk8
      script:
-      - git clone https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git
+      - git clone https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git -b sdk-build-automation
       - cd esper-sdk-config
       - wget -q https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.4/swagger-codegen-cli-2.4.4.jar
       - git clone https://$GITHUB_TOKEN@github.com/pallavigopi/esper-client-py.git -b sdk-build-automation
