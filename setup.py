@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-ESPER API REFERENCE
+Esper APIs
 
 OpenAPI spec version: 1.0.0
 Contact: developer@esper.io
@@ -46,10 +46,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="ESPER API REFERENCE",
+    description="Esper APIs",
     author_email="developer@esper.io",
     url="",
-    keywords=["Python SDK", "ESPER API REFERENCE"],
+    keywords=["Python SDK", "Esper APIs"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-ESPER API REFERENCE
+Esper APIs
 
 OpenAPI spec version: 1.0.0
 Contact: developer@esper.io
@@ -29,7 +29,7 @@ import re
 
 import six
 
-from esperclient.models.enterprise_policy import EnterprisePolicy
+from esperclient.models.v0_command_status import V0CommandStatus
 
 
 class InlineResponse2008(object):
@@ -49,7 +49,7 @@ class InlineResponse2008(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[EnterprisePolicy]'
+        'results': 'list[V0CommandStatus]'
     }
 
     attribute_map = {
@@ -68,12 +68,14 @@ class InlineResponse2008(object):
         self._results = None
         self.discriminator = None
 
-        self.count = count
+        if count is not None:
+            self.count = count
         if next is not None:
             self.next = next
         if previous is not None:
             self.previous = previous
-        self.results = results
+        if results is not None:
+            self.results = results
 
     @property
     def count(self):
@@ -93,8 +95,6 @@ class InlineResponse2008(object):
         :param count: The count of this InlineResponse2008.
         :type: int
         """
-        if count is None:
-            raise ValueError("Invalid value for `count`, must not be `None`")
 
         self._count = count
 
@@ -146,7 +146,7 @@ class InlineResponse2008(object):
 
 
         :return: The results of this InlineResponse2008.
-        :rtype: list[EnterprisePolicy]
+        :rtype: list[V0CommandStatus]
         """
         return self._results
 
@@ -156,10 +156,8 @@ class InlineResponse2008(object):
 
 
         :param results: The results of this InlineResponse2008.
-        :type: list[EnterprisePolicy]
+        :type: list[V0CommandStatus]
         """
-        if results is None:
-            raise ValueError("Invalid value for `results`, must not be `None`")
 
         self._results = results
 
