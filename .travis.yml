@@ -24,7 +24,7 @@ jobs:
       - cat sdk-config/python-config.json | grep "packageVersion"
       - wget -q https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.4/swagger-codegen-cli-2.4.4.jar
       - git clone https://$GITHUB_TOKEN@github.com/pallavigopi/esper-client-py.git -b sdk-build-automation
-      - java -jar swagger-codegen-cli-2.4.4.jar generate -i ./esper-api-spec.yaml -l python -c ./sdk-config/python-config.json --template-dir ./sdk-templates/python/ -o esper-client-py -s
+      - java -jar swagger-codegen-cli-2.4.4.jar generate -i ./esper-api-spec.yaml -l python -c ./sdk-config/python-config.json --template-dir ./sdk-templates/python/ -o esper-client-py
       - cd esper-client-py
       - git config --global user.email "travis@travis-ci.org"
       - git config --global user.name "Travis CI"
@@ -33,7 +33,6 @@ jobs:
       - git diff-index --quiet HEAD || git commit -m "Travis Build $TRAVIS_BUILD_NUMBER"
       - git push -u origin sdk-build-automation
 
-      #random commit ok
       #  - stage: Update version and repository  
 # # command to install dependencies
 # install: "pip install -r requirements.txt"
