@@ -17,5 +17,6 @@ jobs:
      if: tag IS present
      script:
       #script here
-      - ls
-      - pwd
+      - rm -r dist/*
+      - python setup.py sdist bdist_wheel
+      - ls 
