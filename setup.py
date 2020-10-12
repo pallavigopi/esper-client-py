@@ -29,7 +29,8 @@ from setuptools import setup, find_packages
 NAME = "esperclient"
 VERSION = "0.1.1
 0.1.2
-0.1.3"
+0.1.3
+0.1.4"
 # To install the library, run the following
 #
 # python setup.py install
@@ -64,6 +65,7 @@ setup(
     - Package version: 0.1.1
 0.1.2
 0.1.3
+0.1.4
 
     For usage instructions and API documentation please visit: https://github.com/esper-io/esper-client-py
 

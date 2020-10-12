@@ -89,7 +89,8 @@ class ApiClient(object):
         # Set default User-Agent.
         self.user_agent = 'Swagger-Codegen/0.1.1
 0.1.2
-0.1.3/python'
+0.1.3
+0.1.4/python'
 
     def __del__(self):
         if self._pool is not None:
