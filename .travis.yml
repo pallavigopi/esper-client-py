@@ -20,4 +20,4 @@ jobs:
       #script here
       - python setup.py sdist bdist_wheel
       - ls 
-      - twine upload dist/*
+      - twine upload --repository testpypi dist/*
