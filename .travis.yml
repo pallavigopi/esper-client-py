@@ -35,15 +35,4 @@ jobs:
       - git diff-index --quiet HEAD || git commit -m "Travis Build $TRAVIS_BUILD_NUMBER"
       - git push -u origin sdk-build-automation
 
-      #  - stage: Update version and repository  
-# # command to install dependencies
-# install: "pip install -r requirements.txt"
-
-# env:
-#   - PYTHONPATH=.
-
-# # command to install dependencies
-# install: "pip install -r requirements.txt"
-
-# # command to run tests
-# script: python test/scripts/test_env.py
+#add code to test
