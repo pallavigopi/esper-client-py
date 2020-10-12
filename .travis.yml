@@ -1,7 +1,3 @@
-#test the sdk
-#build dist
-#push to pypi
-
 language: python
 python:
   - "3.6"
@@ -10,11 +6,11 @@ jobs:
    - stage: Perform tests
      env:
       - PYTHONPATH=.
-    #  if: tag IS present
+     if: tag IS present
      install: "pip install -r requirements.txt"
      script: python test/scripts/test_env.py
    - stage: Push SDK to pypi
-    #  if: tag IS present
+     if: tag IS present
      install: "pip install setuptools wheel twine"
      script:
       #script here
