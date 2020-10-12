@@ -5,6 +5,7 @@ jobs:
  include:
    - stage: Version Updation
      language: python
+     if: tag IS present
      script:
       - git clone --quiet https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git -b sdk-build-automation
       - cd esper-sdk-config
@@ -18,6 +19,7 @@ jobs:
    - stage: SDK Generation
      language: java
      jdk: openjdk8
+     if: tag IS present
      script:
       - git clone https://pallavigopi:$BITBUCKET_TOKEN@bitbucket.org/shoonyacloud/esper-sdk-config.git -b sdk-build-automation
       - cd esper-sdk-config
