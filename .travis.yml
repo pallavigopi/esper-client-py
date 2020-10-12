@@ -20,3 +20,4 @@ jobs:
       - rm -r dist/*
       - python setup.py sdist bdist_wheel
       - ls 
+      - echo "worked"
