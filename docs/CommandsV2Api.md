@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**get_command_request_status**](CommandsV2Api.md#get_command_request_status) | **GET** /v0/enterprise/{enterprise_id}/command/{request_id}/status/ | get status list for command request
 [**get_device_command_history**](CommandsV2Api.md#get_device_command_history) | **GET** /v0/enterprise/{enterprise_id}/device/{device_id}/command-history/ | get command history for device
 [**list_command_request**](CommandsV2Api.md#list_command_request) | **GET** /v0/enterprise/{enterprise_id}/command/ | List command requests
-[**partial_update_command_status**](CommandsV2Api.md#partial_update_command_status) | **PATCH** /v0/enterprise/{enterprise_id}/command/{request_id}/status/{command_id}/ | Update command status
 
 
 # **create_command**
@@ -65,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_command_request_status**
-> InlineResponse2008 get_command_request_status(enterprise_id, request_id, device=device, state=state)
+> InlineResponse20010 get_command_request_status(enterprise_id, request_id, device=device, state=state)
 
 get status list for command request
 
@@ -108,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -122,7 +121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_device_command_history**
-> InlineResponse2008 get_device_command_history(enterprise_id, device_id, state=state)
+> InlineResponse20010 get_device_command_history(enterprise_id, device_id, state=state)
 
 get command history for device
 
@@ -163,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -177,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_command_request**
-> InlineResponse2007 list_command_request(enterprise_id, command_type=command_type, devices=devices, device_type=device_type, command=command, issued_by=issued_by)
+> InlineResponse2009 list_command_request(enterprise_id, command_type=command_type, devices=devices, device_type=device_type, command=command, issued_by=issued_by)
 
 List command requests
 
@@ -224,66 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **partial_update_command_status**
-> V0CommandStatus partial_update_command_status(enterprise_id, request_id, command_id, action, data=data)
-
-Update command status
-
-API to patch the state of command
-
-### Example
-```python
-import esperclient
-from esperclient.rest import ApiException
-
-# Configure API key authorization: apiKey
-configuration = esperclient.Configuration()
-configuration.host = 'SERVER_URL'
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = esperclient.CommandsV2Api(esperclient.ApiClient(configuration))
-enterprise_id = 'enterprise_id_example' # str | ID of the enterprise
-request_id = 'request_id_example' # str | ID for the command request
-command_id = 'command_id_example' # str | ID for the command
-action = 'action_example' # str | Action to be performed on device
-data = esperclient.V0CommandStatusUpdate() # V0CommandStatusUpdate |  (optional)
-
-try:
-    # Update command status
-    api_response = api_instance.partial_update_command_status(enterprise_id, request_id, command_id, action, data=data)
-    print(api_response)
-except ApiException as e:
-    print("Exception when calling CommandsV2Api->partial_update_command_status: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterprise_id** | [**str**](.md)| ID of the enterprise | 
- **request_id** | [**str**](.md)| ID for the command request | 
- **command_id** | [**str**](.md)| ID for the command | 
- **action** | **str**| Action to be performed on device | 
- **data** | [**V0CommandStatusUpdate**](V0CommandStatusUpdate.md)|  | [optional] 
-
-### Return type
-
-[**V0CommandStatus**](V0CommandStatus.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 

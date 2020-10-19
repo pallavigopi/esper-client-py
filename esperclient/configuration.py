@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Esper APIs
+ESPER API REFERENCE
 
 OpenAPI spec version: 1.0.0
 Contact: developer@esper.io
@@ -253,5 +253,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 0.1.9".\
+               "SDK Package Version: 0.1.12".\
                format(env=sys.platform, pyversion=sys.version)

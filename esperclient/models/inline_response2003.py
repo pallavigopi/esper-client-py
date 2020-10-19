@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Esper APIs
+ESPER API REFERENCE
 
 OpenAPI spec version: 1.0.0
 Contact: developer@esper.io
@@ -29,7 +29,7 @@ import re
 
 import six
 
-from esperclient.models.device_app import DeviceApp
+from esperclient.models.device import Device
 
 
 class InlineResponse2003(object):
@@ -49,7 +49,7 @@ class InlineResponse2003(object):
         'count': 'int',
         'next': 'str',
         'previous': 'str',
-        'results': 'list[DeviceApp]'
+        'results': 'list[Device]'
     }
 
     attribute_map = {
@@ -68,12 +68,14 @@ class InlineResponse2003(object):
         self._results = None
         self.discriminator = None
 
-        self.count = count
+        if count is not None:
+            self.count = count
         if next is not None:
             self.next = next
         if previous is not None:
             self.previous = previous
-        self.results = results
+        if results is not None:
+            self.results = results
 
     @property
     def count(self):
@@ -93,8 +95,6 @@ class InlineResponse2003(object):
         :param count: The count of this InlineResponse2003.
         :type: int
         """
-        if count is None:
-            raise ValueError("Invalid value for `count`, must not be `None`")
 
         self._count = count
 
@@ -146,7 +146,7 @@ class InlineResponse2003(object):
 
 
         :return: The results of this InlineResponse2003.
-        :rtype: list[DeviceApp]
+        :rtype: list[Device]
         """
         return self._results
 
@@ -156,10 +156,8 @@ class InlineResponse2003(object):
 
 
         :param results: The results of this InlineResponse2003.
-        :type: list[DeviceApp]
+        :type: list[Device]
         """
-        if results is None:
-            raise ValueError("Invalid value for `results`, must not be `None`")
 
         self._results = results
 

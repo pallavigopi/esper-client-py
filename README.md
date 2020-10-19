@@ -7,7 +7,7 @@ Esper provides a Python client library to communicate with the Esper APIs to pro
 
 
 - API version: 1.0.0
-- Package version: 0.1.9
+- Package version: 0.1.12
 
 
 ## Requirements.
@@ -86,6 +86,7 @@ Class | Method | HTTP request
 *ApplicationApi* | [**get_app_version**](docs/ApplicationApi.md#get_app_version) | **GET** /enterprise/{enterprise_id}/application/{application_id}/version/{version_id}/
 *ApplicationApi* | [**get_app_versions**](docs/ApplicationApi.md#get_app_versions) | **GET** /enterprise/{enterprise_id}/application/{application_id}/version/
 *ApplicationApi* | [**get_application**](docs/ApplicationApi.md#get_application) | **GET** /enterprise/{enterprise_id}/application/{application_id}/
+*ApplicationApi* | [**get_install_devices**](docs/ApplicationApi.md#get_install_devices) | **GET** /enterprise/{enterprise_id}/application/{application_id}/version/{version_id}/installdevices
 *ApplicationApi* | [**upload**](docs/ApplicationApi.md#upload) | **POST** /enterprise/{enterprise_id}/application/upload/
 *CommandsApi* | [**get_command**](docs/CommandsApi.md#get_command) | **GET** /enterprise/{enterprise_id}/device/{device_id}/command/{command_id}/
 *CommandsApi* | [**run_command**](docs/CommandsApi.md#run_command) | **POST** /enterprise/{enterprise_id}/device/{device_id}/command/
@@ -93,7 +94,6 @@ Class | Method | HTTP request
 *CommandsV2Api* | [**get_command_request_status**](docs/CommandsV2Api.md#get_command_request_status) | **GET** /v0/enterprise/{enterprise_id}/command/{request_id}/status/
 *CommandsV2Api* | [**get_device_command_history**](docs/CommandsV2Api.md#get_device_command_history) | **GET** /v0/enterprise/{enterprise_id}/device/{device_id}/command-history/
 *CommandsV2Api* | [**list_command_request**](docs/CommandsV2Api.md#list_command_request) | **GET** /v0/enterprise/{enterprise_id}/command/
-*CommandsV2Api* | [**partial_update_command_status**](docs/CommandsV2Api.md#partial_update_command_status) | **PATCH** /v0/enterprise/{enterprise_id}/command/{request_id}/status/{command_id}/
 *DeviceApi* | [**get_all_devices**](docs/DeviceApi.md#get_all_devices) | **GET** /enterprise/{enterprise_id}/device/
 *DeviceApi* | [**get_app_installs**](docs/DeviceApi.md#get_app_installs) | **GET** /enterprise/{enterprise_id}/device/{device_id}/install/
 *DeviceApi* | [**get_device_app_by_id**](docs/DeviceApi.md#get_device_app_by_id) | **GET** /enterprise/{enterprise_id}/device/{device_id}/app/{app_id}/
@@ -108,9 +108,26 @@ Class | Method | HTTP request
 *DeviceGroupApi* | [**update_group**](docs/DeviceGroupApi.md#update_group) | **PUT** /enterprise/{enterprise_id}/devicegroup/{group_id}/
 *EnterpriseApi* | [**get_enterprise**](docs/EnterpriseApi.md#get_enterprise) | **GET** /v1/enterprise/{enterprise_id}/
 *EnterpriseApi* | [**partial_update_enterprise**](docs/EnterpriseApi.md#partial_update_enterprise) | **PATCH** /v1/enterprise/{enterprise_id}/
+*EnterprisePolicyApi* | [**create_policy**](docs/EnterprisePolicyApi.md#create_policy) | **POST** /enterprise/{enterprise_id}/policy/
+*EnterprisePolicyApi* | [**delete_enterprise_policy**](docs/EnterprisePolicyApi.md#delete_enterprise_policy) | **DELETE** /enterprise/{enterprise_id}/policy/{policy_id}/
+*EnterprisePolicyApi* | [**get_policy_by_id**](docs/EnterprisePolicyApi.md#get_policy_by_id) | **GET** /enterprise/{enterprise_id}/policy/{policy_id}/
+*EnterprisePolicyApi* | [**list_policies**](docs/EnterprisePolicyApi.md#list_policies) | **GET** /enterprise/{enterprise_id}/policy/
+*EnterprisePolicyApi* | [**partialupdate_policy**](docs/EnterprisePolicyApi.md#partialupdate_policy) | **PATCH** /enterprise/{enterprise_id}/policy/{policy_id}/
+*EnterprisePolicyApi* | [**update_policy**](docs/EnterprisePolicyApi.md#update_policy) | **PUT** /enterprise/{enterprise_id}/policy/{policy_id}/
+*GeofenceApi* | [**create_geofence**](docs/GeofenceApi.md#create_geofence) | **POST** /v0/enterprise/{enterprise_id}/geofence/
+*GeofenceApi* | [**delete_geofence**](docs/GeofenceApi.md#delete_geofence) | **DELETE** /v0/enterprise/{enterprise_id}/geofence/{geofence_id}/
+*GeofenceApi* | [**get_all_geofences**](docs/GeofenceApi.md#get_all_geofences) | **GET** /v0/enterprise/{enterprise_id}/geofence/
+*GeofenceApi* | [**get_geofence**](docs/GeofenceApi.md#get_geofence) | **GET** /v0/enterprise/{enterprise_id}/geofence/{geofence_id}/
+*GeofenceApi* | [**partial_update_geofence**](docs/GeofenceApi.md#partial_update_geofence) | **PATCH** /v0/enterprise/{enterprise_id}/geofence/{geofence_id}/
+*GeofenceApi* | [**update_geofence**](docs/GeofenceApi.md#update_geofence) | **PUT** /v0/enterprise/{enterprise_id}/geofence/{geofence_id}/
 *GroupCommandsApi* | [**get_group_command**](docs/GroupCommandsApi.md#get_group_command) | **GET** /enterprise/{enterprise_id}/devicegroup/{group_id}/command/{command_id}/
 *GroupCommandsApi* | [**run_group_command**](docs/GroupCommandsApi.md#run_group_command) | **POST** /enterprise/{enterprise_id}/devicegroup/{group_id}/command/
+*SubscriptionApi* | [**create_subscription**](docs/SubscriptionApi.md#create_subscription) | **POST** /v0/enterprise/{enterprise_id}/subscription/
+*SubscriptionApi* | [**delete_subscription**](docs/SubscriptionApi.md#delete_subscription) | **DELETE** /v0/enterprise/{enterprise_id}/subscription/{subscription_id}/
+*SubscriptionApi* | [**get_all_subscriptions**](docs/SubscriptionApi.md#get_all_subscriptions) | **GET** /v0/enterprise/{enterprise_id}/subscription/
+*SubscriptionApi* | [**get_subscription**](docs/SubscriptionApi.md#get_subscription) | **GET** /v0/enterprise/{enterprise_id}/subscription/{subscription_id}/
 *TokenApi* | [**get_token_info**](docs/TokenApi.md#get_token_info) | **GET** /v1/token-info/
+*TokenApi* | [**renew_token**](docs/TokenApi.md#renew_token) | **POST** /v0/enterprise/{enterprise_id}/developerapp/{developerapp_id}/renew-token/
 
 
 ## Documentation For Models
@@ -129,17 +146,33 @@ Class | Method | HTTP request
  - [DeviceAppPermission](docs/DeviceAppPermission.md)
  - [DeviceCommand](docs/DeviceCommand.md)
  - [DeviceGroup](docs/DeviceGroup.md)
+ - [DeviceGroupPartialUpdate](docs/DeviceGroupPartialUpdate.md)
  - [DeviceGroupUpdate](docs/DeviceGroupUpdate.md)
  - [DeviceStatus](docs/DeviceStatus.md)
  - [EmmDevice](docs/EmmDevice.md)
+ - [EnterprisePolicy](docs/EnterprisePolicy.md)
+ - [EnterprisePolicyData](docs/EnterprisePolicyData.md)
+ - [EnterprisePolicyDataDevicePasswordPolicy](docs/EnterprisePolicyDataDevicePasswordPolicy.md)
+ - [EnterprisePolicyDataDeviceUpdatePolicy](docs/EnterprisePolicyDataDeviceUpdatePolicy.md)
+ - [EnterprisePolicyDataFrpGoogles](docs/EnterprisePolicyDataFrpGoogles.md)
+ - [EnterprisePolicyDataGoogleAccountPermission](docs/EnterprisePolicyDataGoogleAccountPermission.md)
+ - [EnterprisePolicyDataPhonePolicy](docs/EnterprisePolicyDataPhonePolicy.md)
+ - [EnterprisePolicyPartialUpdate](docs/EnterprisePolicyPartialUpdate.md)
  - [EnterpriseUpdateV1](docs/EnterpriseUpdateV1.md)
  - [EnterpriseV1](docs/EnterpriseV1.md)
+ - [EventSubscription](docs/EventSubscription.md)
+ - [EventSubscriptionArgs](docs/EventSubscriptionArgs.md)
+ - [Geofence](docs/Geofence.md)
+ - [GeofenceUpdate](docs/GeofenceUpdate.md)
  - [GoogleEMM](docs/GoogleEMM.md)
  - [GroupCommand](docs/GroupCommand.md)
  - [GroupCommandArgs](docs/GroupCommandArgs.md)
  - [GroupCommandRequest](docs/GroupCommandRequest.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse20010](docs/InlineResponse20010.md)
+ - [InlineResponse20011](docs/InlineResponse20011.md)
+ - [InlineResponse20012](docs/InlineResponse20012.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
@@ -147,15 +180,16 @@ Class | Method | HTTP request
  - [InlineResponse2006](docs/InlineResponse2006.md)
  - [InlineResponse2007](docs/InlineResponse2007.md)
  - [InlineResponse2008](docs/InlineResponse2008.md)
+ - [InlineResponse2009](docs/InlineResponse2009.md)
  - [InlineResponse201](docs/InlineResponse201.md)
+ - [InstallDevices](docs/InstallDevices.md)
  - [TokenInfoV1](docs/TokenInfoV1.md)
+ - [TokenRenewV0](docs/TokenRenewV0.md)
  - [V0CommandArgs](docs/V0CommandArgs.md)
  - [V0CommandRequest](docs/V0CommandRequest.md)
  - [V0CommandRequestStatus](docs/V0CommandRequestStatus.md)
  - [V0CommandScheduleArgs](docs/V0CommandScheduleArgs.md)
  - [V0CommandStatus](docs/V0CommandStatus.md)
- - [V0CommandStatusUpdate](docs/V0CommandStatusUpdate.md)
- - [V0CommandStatusUpdateDetails](docs/V0CommandStatusUpdateDetails.md)
 
 
 ## Documentation For Enums

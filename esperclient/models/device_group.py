@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Esper APIs
+ESPER API REFERENCE
 
 OpenAPI spec version: 1.0.0
 Contact: developer@esper.io
@@ -45,44 +45,60 @@ class DeviceGroup(object):
     """
     swagger_types = {
         'id': 'str',
-        'device_count': 'int',
         'name': 'str',
         'created_on': 'datetime',
-        'enterprise': 'str'
+        'enterprise': 'str',
+        'parent': 'str',
+        'device_count': 'int',
+        'path': 'str',
+        'children_count': 'int'
     }
 
     attribute_map = {
         'id': 'id',
-        'device_count': 'device_count',
         'name': 'name',
         'created_on': 'created_on',
-        'enterprise': 'enterprise'
+        'enterprise': 'enterprise',
+        'parent': 'parent',
+        'device_count': 'device_count',
+        'path': 'path',
+        'children_count': 'children_count'
     }
 
-    def __init__(self, id=None, device_count=None, name=None, created_on=None, enterprise=None):
+    def __init__(self, id=None, name=None, created_on=None, enterprise=None, parent=None, device_count=None, path=None, children_count=None):
         """DeviceGroup - a model defined in Swagger"""
 
         self._id = None
-        self._device_count = None
         self._name = None
         self._created_on = None
         self._enterprise = None
+        self._parent = None
+        self._device_count = None
+        self._path = None
+        self._children_count = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
-        if device_count is not None:
-            self.device_count = device_count
         self.name = name
         if created_on is not None:
             self.created_on = created_on
         if enterprise is not None:
             self.enterprise = enterprise
+        if parent is not None:
+            self.parent = parent
+        if device_count is not None:
+            self.device_count = device_count
+        if path is not None:
+            self.path = path
+        if children_count is not None:
+            self.children_count = children_count
 
     @property
     def id(self):
         """Gets the id of this DeviceGroup.
 
+        Group id
 
         :return: The id of this DeviceGroup.
         :rtype: str
@@ -93,6 +109,7 @@ class DeviceGroup(object):
     def id(self, id):
         """Sets the id of this DeviceGroup.
 
+        Group id
 
         :param id: The id of this DeviceGroup.
         :type: str
@@ -101,30 +118,10 @@ class DeviceGroup(object):
         self._id = id
 
     @property
-    def device_count(self):
-        """Gets the device_count of this DeviceGroup.
-
-
-        :return: The device_count of this DeviceGroup.
-        :rtype: int
-        """
-        return self._device_count
-
-    @device_count.setter
-    def device_count(self, device_count):
-        """Sets the device_count of this DeviceGroup.
-
-
-        :param device_count: The device_count of this DeviceGroup.
-        :type: int
-        """
-
-        self._device_count = device_count
-
-    @property
     def name(self):
         """Gets the name of this DeviceGroup.
 
+        Group name
 
         :return: The name of this DeviceGroup.
         :rtype: str
@@ -135,16 +132,13 @@ class DeviceGroup(object):
     def name(self, name):
         """Sets the name of this DeviceGroup.
 
+        Group name
 
         :param name: The name of this DeviceGroup.
         :type: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 255:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `255`")
-        if name is not None and len(name) < 1:
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")
 
         self._name = name
 
@@ -152,6 +146,7 @@ class DeviceGroup(object):
     def created_on(self):
         """Gets the created_on of this DeviceGroup.
 
+        Date and time of when the group was created
 
         :return: The created_on of this DeviceGroup.
         :rtype: datetime
@@ -162,6 +157,7 @@ class DeviceGroup(object):
     def created_on(self, created_on):
         """Sets the created_on of this DeviceGroup.
 
+        Date and time of when the group was created
 
         :param created_on: The created_on of this DeviceGroup.
         :type: datetime
@@ -173,6 +169,7 @@ class DeviceGroup(object):
     def enterprise(self):
         """Gets the enterprise of this DeviceGroup.
 
+        Enterprise url
 
         :return: The enterprise of this DeviceGroup.
         :rtype: str
@@ -183,12 +180,105 @@ class DeviceGroup(object):
     def enterprise(self, enterprise):
         """Sets the enterprise of this DeviceGroup.
 
+        Enterprise url
 
         :param enterprise: The enterprise of this DeviceGroup.
         :type: str
         """
 
         self._enterprise = enterprise
+
+    @property
+    def parent(self):
+        """Gets the parent of this DeviceGroup.
+
+        Parent group url
+
+        :return: The parent of this DeviceGroup.
+        :rtype: str
+        """
+        return self._parent
+
+    @parent.setter
+    def parent(self, parent):
+        """Sets the parent of this DeviceGroup.
+
+        Parent group url
+
+        :param parent: The parent of this DeviceGroup.
+        :type: str
+        """
+
+        self._parent = parent
+
+    @property
+    def device_count(self):
+        """Gets the device_count of this DeviceGroup.
+
+        Count of devices in the group
+
+        :return: The device_count of this DeviceGroup.
+        :rtype: int
+        """
+        return self._device_count
+
+    @device_count.setter
+    def device_count(self, device_count):
+        """Sets the device_count of this DeviceGroup.
+
+        Count of devices in the group
+
+        :param device_count: The device_count of this DeviceGroup.
+        :type: int
+        """
+
+        self._device_count = device_count
+
+    @property
+    def path(self):
+        """Gets the path of this DeviceGroup.
+
+        Path of the group
+
+        :return: The path of this DeviceGroup.
+        :rtype: str
+        """
+        return self._path
+
+    @path.setter
+    def path(self, path):
+        """Sets the path of this DeviceGroup.
+
+        Path of the group
+
+        :param path: The path of this DeviceGroup.
+        :type: str
+        """
+
+        self._path = path
+
+    @property
+    def children_count(self):
+        """Gets the children_count of this DeviceGroup.
+
+        Count of child groups
+
+        :return: The children_count of this DeviceGroup.
+        :rtype: int
+        """
+        return self._children_count
+
+    @children_count.setter
+    def children_count(self, children_count):
+        """Sets the children_count of this DeviceGroup.
+
+        Count of child groups
+
+        :param children_count: The children_count of this DeviceGroup.
+        :type: int
+        """
+
+        self._children_count = children_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

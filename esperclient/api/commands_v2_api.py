@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Esper APIs
+ESPER API REFERENCE
 
 OpenAPI spec version: 1.0.0
 Contact: developer@esper.io
@@ -162,7 +162,7 @@ class CommandsV2Api(object):
         :param str request_id: ID for the command request (required)
         :param str device: Filter status result by device id.
         :param str state: Filter by command state
-        :return: InlineResponse2008
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -187,7 +187,7 @@ class CommandsV2Api(object):
         :param str request_id: ID for the command request (required)
         :param str device: Filter status result by device id.
         :param str state: Filter by command state
-        :return: InlineResponse2008
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -251,7 +251,7 @@ class CommandsV2Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',
+            response_type='InlineResponse20010',
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -272,7 +272,7 @@ class CommandsV2Api(object):
         :param str enterprise_id: Id of the enterprise (required)
         :param str device_id: Id for the command request (required)
         :param str state: Filter by command state
-        :return: InlineResponse2008
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -296,7 +296,7 @@ class CommandsV2Api(object):
         :param str enterprise_id: Id of the enterprise (required)
         :param str device_id: Id for the command request (required)
         :param str state: Filter by command state
-        :return: InlineResponse2008
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -358,7 +358,7 @@ class CommandsV2Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',
+            response_type='InlineResponse20010',
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -382,7 +382,7 @@ class CommandsV2Api(object):
         :param str device_type: Filter by device type i.e active, inactive etc
         :param str command: Filter by command name
         :param str issued_by: Filter by user. Accepts user id.
-        :return: InlineResponse2007
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -409,7 +409,7 @@ class CommandsV2Api(object):
         :param str device_type: Filter by device type i.e active, inactive etc
         :param str command: Filter by command name
         :param str issued_by: Filter by user. Accepts user id.
-        :return: InlineResponse2007
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -473,130 +473,7 @@ class CommandsV2Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def partial_update_command_status(self, enterprise_id, request_id, command_id, action, **kwargs):
-        """Update command status
-
-        API to patch the state of command
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.partial_update_command_status(enterprise_id, request_id, command_id, action, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str enterprise_id: ID of the enterprise (required)
-        :param str request_id: ID for the command request (required)
-        :param str command_id: ID for the command (required)
-        :param str action: Action to be performed on device (required)
-        :param V0CommandStatusUpdate data:
-        :return: V0CommandStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.partial_update_command_status_with_http_info(enterprise_id, request_id, command_id, action, **kwargs)
-        else:
-            (data) = self.partial_update_command_status_with_http_info(enterprise_id, request_id, command_id, action, **kwargs)
-            return data
-
-    def partial_update_command_status_with_http_info(self, enterprise_id, request_id, command_id, action, **kwargs):
-        """Update command status
-
-        API to patch the state of command
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.partial_update_command_status_with_http_info(enterprise_id, request_id, command_id, action, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str enterprise_id: ID of the enterprise (required)
-        :param str request_id: ID for the command request (required)
-        :param str command_id: ID for the command (required)
-        :param str action: Action to be performed on device (required)
-        :param V0CommandStatusUpdate data:
-        :return: V0CommandStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['enterprise_id', 'request_id', 'command_id', 'action', 'data']
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method partial_update_command_status" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'enterprise_id' is set
-        if ('enterprise_id' not in params or
-                params['enterprise_id'] is None):
-            raise ValueError("Missing the required parameter `enterprise_id` when calling `partial_update_command_status`")
-        # verify the required parameter 'request_id' is set
-        if ('request_id' not in params or
-                params['request_id'] is None):
-            raise ValueError("Missing the required parameter `request_id` when calling `partial_update_command_status`")
-        # verify the required parameter 'command_id' is set
-        if ('command_id' not in params or
-                params['command_id'] is None):
-            raise ValueError("Missing the required parameter `command_id` when calling `partial_update_command_status`")
-        # verify the required parameter 'action' is set
-        if ('action' not in params or
-                params['action'] is None):
-            raise ValueError("Missing the required parameter `action` when calling `partial_update_command_status`")
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'enterprise_id' in params:
-            path_params['enterprise_id'] = params['enterprise_id']
-        if 'request_id' in params:
-            path_params['request_id'] = params['request_id']
-        if 'command_id' in params:
-            path_params['command_id'] = params['command_id']
-
-        query_params = []
-        if 'action' in params:
-            query_params.append(('action', params['action']))
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])
-
-        # Authentication setting
-        auth_settings = ['apiKey']
-
-        return self.api_client.call_api(
-            '/v0/enterprise/{enterprise_id}/command/{request_id}/status/{command_id}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='V0CommandStatus',
+            response_type='InlineResponse2009',
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
